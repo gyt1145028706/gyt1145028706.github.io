@@ -297,10 +297,16 @@
       max-width: 300px;
       height: 168px;
       border-radius: 8px;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
-      background: var(--soft);
+      background: #fff;
       border: 1px solid var(--line);
+      padding: 8px;
+    }
+
+    .paper-image.fill-image {
+      object-fit: fill;
+      padding: 0;
     }
 
     .paper-content {
@@ -344,34 +350,13 @@
       font-weight: 700;
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .info-card {
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .info-card h2 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-    }
-
-    .info-card p,
-    .info-card li {
+    .cv-summary {
+      max-width: 920px;
+      margin: 10px 0 0;
       color: var(--muted);
-    }
-
-    .info-card ul {
-      display: block;
-      margin: 0;
-      padding-left: 20px;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.8;
     }
 
     .footer {
@@ -412,8 +397,7 @@
         height: 190px;
       }
 
-      .paper-container,
-      .info-grid {
+      .paper-container {
         display: grid;
         grid-template-columns: 1fr;
       }
@@ -579,7 +563,7 @@
       </article>
 
       <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-TTS-Family.jpeg" alt="MOSS-TTS-Family overview" />
+        <img class="paper-image fill-image" src="images/project/MOSS-TTS-Family.jpeg" alt="MOSS-TTS-Family overview" />
         <div class="paper-content">
           <h2 class="paper-title">MOSS-TTS Technical Report</h2>
           <p class="paper-conf">Technical Report</p>
@@ -688,36 +672,9 @@
   <section class="section compact" id="cv">
     <div class="container">
       <h1 class="section-title">CV</h1>
-      <div class="info-grid">
-        <div class="info-card">
-          <h2>Education</h2>
-          <p><strong>Fudan University</strong>, M.S., advised by Prof. Xipeng Qiu, Sept. 2024 - Jun. 2027 expected.</p>
-          <p><strong>University of Jinan</strong>, B.S., Sept. 2020 - Jun. 2024.</p>
-        </div>
-        <div class="info-card">
-          <h2>Experience</h2>
-          <p><strong>模思智能</strong>, Algorithm Intern, Apr. 2025 - present.</p>
-          <p>Research and engineering on multimodal foundation models, speech tokenizers, speech understanding, speech generation, and large-scale distributed training.</p>
-        </div>
-        <div class="info-card">
-          <h2>Honors</h2>
-          <ul>
-            <li>ICPC Asia Regional Silver Medal, 2022.</li>
-            <li>CCPC Silver Medal, 2022; National Finals Bronze Medal, 2023.</li>
-            <li>Lanqiao Cup National First Prize, 2022, 2023, 2024.</li>
-            <li>ICPC Shandong Provincial Contest Gold Medal, 2022, 2023, 2024.</li>
-          </ul>
-        </div>
-        <div class="info-card">
-          <h2>Skills</h2>
-          <ul>
-            <li>C, Python</li>
-            <li>PyTorch, Transformers, Megatron</li>
-            <li>SpeechTokenizer, VAE, ASR, TTS</li>
-            <li>Mandarin, Wu Chinese, English</li>
-          </ul>
-        </div>
-      </div>
+      <p class="cv-summary">
+        I am pursuing an M.S. degree at <strong>Fudan University</strong>, advised by Prof. Xipeng Qiu, and previously received my B.S. degree from the <strong>University of Jinan</strong>. I am currently an algorithm intern at <strong>模思智能</strong>, working on multimodal foundation models, speech tokenizers, speech understanding, speech generation, and large-scale distributed training. My technical background includes C, Python, PyTorch, Transformers, Megatron, SpeechTokenizer, VAE, ASR, and TTS. I have also received awards in ICPC, CCPC, Lanqiao Cup, RAICOM, and ICPC Shandong Provincial Contest.
+      </p>
     </div>
   </section>
 
