@@ -1,784 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Yitian Gong's academic homepage." />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yitian Gong - Homepage</title>
-  <style>
-    :root {
-      --ink: #202124;
-      --muted: #5f6368;
-      --paper: #ffffff;
-      --soft: #f6f7f9;
-      --line: #e2e5e9;
-      --blue: #3273dc;
-      --green: #24924d;
-      --red: #ee1212;
-      --nav: #111211;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.11);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .hero-wrap {
-      min-height: 520px;
-      padding-bottom: 24px;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
-        repeating-linear-gradient(135deg, #edf2f7 0, #edf2f7 2px, #f8fafc 2px, #f8fafc 18px);
-      background-size: cover;
-      background-position: center;
-    }
-
-    .navbar {
-      min-height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 36px;
-      background: rgba(17, 18, 17, 0.78);
-      color: #fff;
-    }
-
-    .navbar-brand {
-      color: #fff;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    .navbar-menu {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .navbar-menu a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 56px;
-      padding: 0 13px;
-      color: #fff;
-      font-size: 0.96rem;
-      font-weight: 650;
-    }
-
-    .navbar-menu a:hover {
-      background: rgba(255, 255, 255, 0.12);
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(100%, 1000px);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .hero-grid {
-      min-height: 328px;
-      display: grid;
-      grid-template-columns: 1fr 260px 1fr;
-      gap: 28px;
-      align-items: center;
-      padding-top: 42px;
-    }
-
-    .card-container,
-    .keyword-cloud {
-      min-height: 170px;
-      border-radius: 8px;
-      background: rgba(34, 34, 34, 0.58);
-      box-shadow: var(--shadow);
-      color: #fff;
-    }
-
-    .card-container {
-      display: grid;
-      gap: 14px;
-      align-content: center;
-      padding: 22px;
-    }
-
-    .mini-card {
-      padding: 12px 14px;
-      border-left: 4px solid rgba(255, 255, 255, 0.72);
-      background: rgba(0, 0, 0, 0.16);
-      border-radius: 6px;
-    }
-
-    .mini-card-title {
-      margin: 0 0 4px;
-      color: #fff;
-      font-size: 1.02rem;
-      font-weight: 800;
-    }
-
-    .mini-card-text {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .avatar-wrap {
-      display: flex;
-      justify-content: center;
-    }
-
-    .avatar {
-      width: 210px;
-      height: 210px;
-      border: 5px solid rgba(255, 255, 255, 0.92);
-      border-radius: 50%;
-      background: #fff;
-      object-fit: cover;
-      object-position: center 22%;
-      box-shadow: var(--shadow);
-    }
-
-    .keyword-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 24px;
-    }
-
-    .keyword-cloud span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
-      font-family: Georgia, serif;
-      font-size: 0.95rem;
-      white-space: nowrap;
-    }
-
-    .hero-title {
-      margin: 18px 0 6px;
-      text-align: center;
-      font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      line-height: 1.18;
-    }
-
-    .hero-subtitle {
-      margin: 0;
-      text-align: center;
-      color: #363636;
-      font-family: Georgia, serif;
-      font-size: clamp(1.15rem, 3vw, 1.5rem);
-      font-style: italic;
-    }
-
-    .icon-box {
-      width: 214px;
-      margin: 20px auto 0;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      border: 2px solid #dbdbdb;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.68);
-    }
-
-    .icon-box a {
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      color: #4a4a4a;
-      transition: color 0.2s ease, background 0.2s ease;
-    }
-
-    .icon-box a:hover {
-      background: rgba(50, 115, 220, 0.1);
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    .icon-box svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-    }
-
-    .section {
-      padding: 42px 0;
-    }
-
-    .section.compact {
-      padding-top: 24px;
-    }
-
-    .section-title {
-      margin: 0 0 18px;
-      font-size: 1.9rem;
-      line-height: 1.25;
-      font-weight: 800;
-    }
-
-    .text-homepage {
-      margin: 10px 0;
-      font-family: Georgia, serif;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .text-homepage strong,
-    .red {
-      color: var(--red);
-      font-weight: 800;
-    }
-
-    .news-list {
-      display: grid;
-      gap: 13px;
-      margin-top: 6px;
-    }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 18px;
-      align-items: baseline;
-      font-family: Georgia, serif;
-    }
-
-    .news-date {
-      font-weight: 800;
-      color: #222;
-    }
-
-    .paper-container {
-      display: flex;
-      gap: 20px;
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .paper-image {
-      flex: 0 0 30%;
-      width: 30%;
-      max-width: 300px;
-      height: 168px;
-      border-radius: 8px;
-      object-fit: contain;
-      object-position: center;
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 8px;
-    }
-
-    .paper-image.fill-image {
-      object-fit: fill;
-      padding: 0;
-    }
-
-    .paper-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .paper-title {
-      margin: 0 0 8px;
-      font-size: 1.18rem;
-      line-height: 1.35;
-      font-weight: 800;
-    }
-
-    .paper-conf {
-      margin: 0 0 5px;
-      color: #4a4a4a;
-      font-style: italic;
-      font-weight: 800;
-    }
-
-    .paper-authors {
-      margin: 0 0 8px;
-      color: #333;
-      font-size: 0.9rem;
-      line-height: 1.48;
-    }
-
-    .paper-description {
-      margin: 0 0 10px;
-      padding: 5px 0;
-      color: var(--muted);
-      font-family: "Chalkboard", Georgia, serif;
-      font-size: 0.92rem;
-      font-style: italic;
-    }
-
-    .paper-link {
-      margin-right: 8px;
-      color: #6c94c0;
-      font-weight: 700;
-    }
-
-    .github-star {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #1f6fbd;
-      white-space: nowrap;
-      vertical-align: middle;
-    }
-
-    .github-star:hover {
-      text-decoration: none;
-    }
-
-    .github-star:hover .code-label {
-      text-decoration: underline;
-    }
-
-    .github-star-badge,
-    .github-star-count {
-      display: inline-flex;
-      align-items: center;
-      min-height: 22px;
-      padding: 1px 7px;
-      border: 1px solid #c8c8c8;
-      background: #eeeeee;
-      color: #333333;
-      font-family: Arial, sans-serif;
-      font-size: 0.88rem;
-      font-weight: 800;
-      line-height: 1;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
-    }
-
-    .github-star-badge {
-      gap: 4px;
-      border-radius: 4px;
-    }
-
-    .github-star-count {
-      margin-left: -2px;
-      border-radius: 4px;
-      background: #f7f7f7;
-      font-weight: 700;
-    }
-
-    .github-star-icon {
-      width: 16px;
-      height: 16px;
-      display: block;
-    }
-
-    .profile-section {
-      max-width: 920px;
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-family: Georgia, serif;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .profile-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .profile-section h1 {
-      margin: 0 0 10px;
-      color: var(--ink);
-      font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-      font-size: 1.9rem;
-      line-height: 1.25;
-      font-weight: 800;
-    }
-
-    .profile-section p {
-      margin: 0 0 8px;
-    }
-
-    .footer {
-      margin-top: 24px;
-      padding: 36px 0;
-      background: #fafafa;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 860px) {
-      .navbar {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 6px;
-        padding: 12px 20px;
-      }
-
-      .navbar-menu {
-        width: 100%;
-        flex-wrap: wrap;
-      }
-
-      .navbar-menu a {
-        min-height: 34px;
-        padding: 0 10px 0 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding-top: 30px;
-      }
-
-      .avatar {
-        width: 190px;
-        height: 190px;
-      }
-
-      .paper-container {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .paper-image {
-        width: 100%;
-        max-width: none;
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        padding: 0 16px;
-      }
-
-      .hero-wrap {
-        min-height: auto;
-      }
-
-      .card-container,
-      .keyword-cloud {
-        min-height: 140px;
-      }
-
-      .news-item {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-
-      .paper-container {
-        padding: 14px;
-      }
-
-      .section-title {
-        font-size: 1.62rem;
-      }
-    }
-  </style>
+  <meta name="description" content="Yitian Gong's academic homepage.">
+  <meta name="keywords" content="Yitian Gong, speech tokenizer, audio tokenizer, TTS, ASR, multimodal foundation models">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a860a211d3.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/font_sans_serif.css">
+  <link rel="stylesheet" href="assets/css/theme-luka.css">
 </head>
-<body>
-  <div class="hero-wrap">
-    <nav class="navbar" aria-label="Primary navigation">
-      <a class="navbar-brand" href="#">Hey! Yitian!</a>
-      <div class="navbar-menu">
-        <a href="#about">About Me</a>
-        <a href="#news">News</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#cv">Education</a>
+<body class="theme-luka">
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="./">Yitian Gong</a>
       </div>
-    </nav>
-
-    <div class="container">
-      <div class="hero-grid">
-        <div class="card-container" aria-label="Research focus cards">
-          <div class="mini-card">
-            <p class="mini-card-title">Audio Foundation Models</p>
-            <p class="mini-card-text">Scaling speech, sound, music, and dialogue into unified model systems.</p>
-          </div>
-          <div class="mini-card">
-            <p class="mini-card-title">Tokenizer First</p>
-            <p class="mini-card-text">Low-frame-rate, variable-bitrate representations for future multimodal LLMs.</p>
-          </div>
-        </div>
-
-        <div class="avatar-wrap">
-          <img class="avatar" src="images/profile.png" alt="Yitian Gong profile photo" />
-        </div>
-
-        <div class="keyword-cloud" aria-label="Research keywords">
-          <span>Speech Tokenizer</span>
-          <span>Audio Tokenizer</span>
-          <span>TTS</span>
-          <span>ASR</span>
-          <span>Speech-to-Speech</span>
-          <span>Megatron</span>
-          <span>PyTorch</span>
-          <span>Multimodal LLM</span>
-          <span>Deployment</span>
-        </div>
-      </div>
-
-      <h1 class="hero-title">Yitian Gong <span lang="zh-CN">(龚奕天)</span></h1>
-      <p class="hero-subtitle">Building Speech and Audio Foundation Models.</p>
-
-      <div class="icon-box" aria-label="Links">
-        <a href="https://github.com/gyt1145028706" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.41-4.04-1.41-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
-          </svg>
-        </a>
-        <a href="mailto:ytgong24@m.fudan.edu.cn" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.5-.25a.25.25 0 0 0-.25.25v.81l6.24 4.54c.3.22.72.22 1.02 0l6.24-4.54V5.5a.25.25 0 0 0-.25-.25h-13Zm13.25 3.83-4.91 3.57a3.12 3.12 0 0 1-3.68 0L5.25 9.08v9.42c0 .14.11.25.25.25h13a.25.25 0 0 0 .25-.25V9.08Z" />
-          </svg>
-        </a>
+      <div class="nav-right">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#news">News</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#education">Education</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </div>
+  </nav>
+
+  <div class="wrapper">
+    <header class="sidebar">
+      <div class="profile-card">
+        <a class="image avatar">
+          <img src="images/profile.png" alt="Yitian Gong profile photo">
+        </a>
+
+        <h1 class="site-name">Yitian Gong</h1>
+        <p class="site-name-cn">龚奕天</p>
+        <p class="site-email">ytgong24@m.fudan.edu.cn</p>
+
+        <div class="social-icons">
+          <a href="mailto:ytgong24@m.fudan.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://github.com/gyt1145028706" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+
+        <div class="visitor-card">
+          <div class="visitor-card-title">Research Focus</div>
+          <div class="visitor-card-body">
+            Speech tokenizers, audio tokenizers, text-to-speech, ASR, speech-to-speech systems, and multimodal foundation models.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-body">
+          <p>
+            Hi! I am <strong>Yitian Gong</strong>, a master's student at Fudan University advised by
+            <a href="https://xpqiu.github.io/" target="_blank" rel="noopener noreferrer">Prof. Xipeng Qiu</a>.
+            My research interests focus on <strong>multimodal foundation models</strong>, especially speech tokenizers,
+            audio tokenizers, audio representation learning, text-to-speech generation, ASR, and speech-to-speech systems.
+          </p>
+          <p>
+            I am dedicated to building native end-to-end multimodal models and making frontier speech and audio technology useful in real downstream scenarios.
+            Recently, I have worked on the MOSS speech stack, including scalable audio tokenization, TTS models, spoken dialogue generation,
+            and practical transcription/diarization systems.
+          </p>
+          <div class="tag-list" aria-label="Research keywords">
+            <span>Speech Tokenizer</span>
+            <span>Audio Tokenizer</span>
+            <span>TTS</span>
+            <span>ASR</span>
+            <span>Speech-to-Speech</span>
+            <span>Megatron</span>
+            <span>PyTorch</span>
+            <span>Multimodal LLM</span>
+            <span>Deployment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="news">
+        <h2 class="section-title">News</h2>
+        <div class="section-body news-list">
+          <div class="news-item"><span class="news-date">2026.03</span><span>MOSS-TTS-Family technical report and toolkit were released.</span></div>
+          <div class="news-item"><span class="news-date">2026.02</span><span>MOSS-Audio-Tokenizer was released for scalable all-domain audio tokenization.</span></div>
+          <div class="news-item"><span class="news-date">2026.01</span><span>MOSS Transcribe Diarize was released with a public demo.</span></div>
+          <div class="news-item"><span class="news-date">ACL 2026</span><span>XY-Tokenizer was accepted to ACL 2026 Main.</span></div>
+        </div>
+      </div>
+
+      <div class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="section-body publications">
+          <ol class="bibliography">
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/MOSS-Audio-Tokenizer.png" alt="MOSS-Audio-Tokenizer overview">
+                <div class="pub-content">
+                  <div class="title">MOSS-Audio-Tokenizer: Scaling Audio Tokenizers for Future Audio Foundation Models</div>
+                  <div class="author"><strong>Yitian Gong</strong>, Kuangwei Chen, Zhaoye Fei, Xiaogui Yang, Ke Chen, Yang Wang, Kexin Huang, Mingshu Chen, Ruixiao Li, Qingyuan Cheng, Shimin Li, Xipeng Qiu</div>
+                  <div class="periodical"><em><strong>Technical Report</strong></em></div>
+                  <div class="pub-desc">Scaling audio tokenizers to support low-frame-rate, variable-bitrate, all-domain audio modeling.</div>
+                  <div class="links">
+                    <a href="https://arxiv.org/abs/2602.10934" target="_blank" rel="noopener noreferrer">Paper</a> /
+                    <a class="github-star" data-github-repo="OpenMOSS/MOSS-Audio-Tokenizer" href="https://github.com/OpenMOSS/MOSS-Audio-Tokenizer" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">193</span></a> /
+                    <a href="https://mosi.cn/models/moss-tts" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb fill-image" src="images/project/MOSS-TTS-Family.jpeg" alt="MOSS-TTS-Family overview">
+                <div class="pub-content">
+                  <div class="title">MOSS-TTS Technical Report</div>
+                  <div class="author"><strong>Yitian Gong</strong>, Botian Jiang, Yiwei Zhao, Yucheng Yuan, Kuangwei Chen, Yaozhou Jiang, Cheng Chang, Dong Hong, Mingshu Chen, Ruixiao Li, and others</div>
+                  <div class="periodical"><em><strong>Technical Report</strong></em></div>
+                  <div class="pub-desc">A MOSS text-to-speech model family with large-scale training, evaluation, and open-source tooling.</div>
+                  <div class="links">
+                    <a href="https://arxiv.org/abs/2603.18090" target="_blank" rel="noopener noreferrer">Paper</a> /
+                    <a class="github-star" data-github-repo="OpenMOSS/MOSS-TTS" href="https://github.com/OpenMOSS/MOSS-TTS" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">1.6k</span></a> /
+                    <a href="https://mosi.cn/models/moss-tts" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/XY-Tokenizer.png" alt="XY-Tokenizer overview">
+                <div class="pub-content">
+                  <div class="title">XY-Tokenizer: Mitigating the Semantic-Acoustic Conflict in Low-Bitrate Speech Codecs</div>
+                  <div class="author"><strong>Yitian Gong</strong>, Luozhijie Jin, Kuangwei Chen, Dong Zhang, Ruifan Deng, Xiaogui Yang, Xin Zhang, Zhaoye Fei, Qinyuan Cheng, Shimin Li, Xipeng Qiu</div>
+                  <div class="periodical"><em><strong>ACL 2026 Main</strong></em></div>
+                  <div class="pub-desc">A speech codec study on the semantic-acoustic conflict in low-bitrate speech representation.</div>
+                  <div class="links">
+                    <a href="https://arxiv.org/pdf/2506.23325" target="_blank" rel="noopener noreferrer">Paper</a> /
+                    <a class="github-star" data-github-repo="gyt1145028706/XY-Tokenizer" href="https://github.com/gyt1145028706/XY-Tokenizer" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">92</span></a> /
+                    <a href="https://gyt1145028706.github.io/XY-Tokenizer.github.io/" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/MOSS-Speech.png" alt="MOSS-Speech overview">
+                <div class="pub-content">
+                  <div class="title">MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance</div>
+                  <div class="author">Xingjian Zhao, Zhe Xu, Qinyuan Cheng, Zhaoye Fei, Luozhijie Jin, Yang Wang, Hanfu Chen, Yaozhou Jiang, Qinghui Gao, Ke Chen, Ruixiao Li, and <strong>Yitian Gong</strong></div>
+                  <div class="periodical"><em><strong>Technical Report</strong></em></div>
+                  <div class="pub-desc">A speech-to-speech modeling effort for direct spoken interaction without text guidance.</div>
+                  <div class="links">
+                    <a href="https://arxiv.org/abs/2510.00499" target="_blank" rel="noopener noreferrer">Paper</a> /
+                    <a class="github-star" data-github-repo="OpenMOSS/MOSS-Speech" href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">130</span></a> /
+                    <a href="https://moss-speech.open-moss.com/" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/MOSS-Transcribe-Diarize.png" alt="MOSS Transcribe Diarize overview">
+                <div class="pub-content">
+                  <div class="title">MOSS Transcribe Diarize Technical Report</div>
+                  <div class="author">Donghua Yu, Zhengyuan Lin, Chen Yang, Yiyang Zhang, Hanfu Chen, Jingqi Chen, Ke Chen, Liwei Fan, Yi Jiang, Jie Zhu, Muchen Li, Wenxuan Wang, Yang Wang, Zhe Xu, <strong>Yitian Gong</strong>, and others</div>
+                  <div class="periodical"><em><strong>Technical Report</strong></em></div>
+                  <div class="pub-desc">A transcription and diarization system for speaker-aware speech understanding.</div>
+                  <div class="links">
+                    <a href="https://arxiv.org/abs/2601.01554" target="_blank" rel="noopener noreferrer">Paper</a> /
+                    <a class="github-star" data-github-repo="Petriorlz/MOSS-Transcribe-Diarize-demo" href="https://github.com/Petriorlz/MOSS-Transcribe-Diarize-demo" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">3</span></a> /
+                    <a href="https://mosi.cn/models/moss-transcribe-diarize" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-body publications">
+          <ol class="bibliography">
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/SpeechGPT2-Preview.png" alt="SpeechGPT2 Preview overview">
+                <div class="pub-content">
+                  <div class="title">SpeechGPT2-preview, SpeechGPT2-Codec</div>
+                  <div class="author">OpenMOSS speech large-model preview release.</div>
+                  <div class="pub-desc">Exploring end-to-end spoken dialogue and codec-centered speech modeling.</div>
+                  <div class="links">
+                    <a class="github-star" data-github-repo="OpenMOSS/SpeechGPT-2.0-preview" href="https://github.com/OpenMOSS/SpeechGPT-2.0-preview" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">371</span></a> /
+                    <a href="https://openmoss.ai/cn/speechgpt2-preview/" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/MOSS-TTSD.png" alt="MOSS-TTSD overview">
+                <div class="pub-content">
+                  <div class="title">MOSS-TTSD: Text to Spoken Dialogue Generation</div>
+                  <div class="author"><strong>Yitian Gong</strong>, Ruifan Deng, Luozhijie Jin, Qinghui Gao, Dong Zhang, Yuqian Zhang, Donghua Yu, Zhengyuan Lin, and others</div>
+                  <div class="pub-desc">Text-to-spoken-dialogue generation for richer multi-speaker and dialogue-style TTS.</div>
+                  <div class="links">
+                    <a class="github-star" data-github-repo="OpenMOSS/MOSS-TTSD" href="https://github.com/OpenMOSS/MOSS-TTSD/tree/v0.7" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">1.3k</span></a> /
+                    <a href="https://openmoss.ai/en/moss-ttsd/" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="pub-row publication-entry">
+                <img class="pub-thumb" src="images/project/MOSS-TTS-Nano.png" alt="MOSS-TTS-Nano overview">
+                <div class="pub-content">
+                  <div class="title">MOSS-TTS-Nano, MOSS-Audio-Tokenizer-Nano</div>
+                  <div class="author">Compact TTS and audio-tokenizer releases.</div>
+                  <div class="pub-desc">Lightweight MOSS speech stack components for easier trying, deployment, and extension.</div>
+                  <div class="links">
+                    <a class="github-star" data-github-repo="OpenMOSS/MOSS-TTS-Nano" href="https://github.com/OpenMOSS/MOSS-TTS-Nano" target="_blank" rel="noopener noreferrer">Code <span class="github-star-count">1.9k</span></a> /
+                    <a href="https://openmoss.github.io/MOSS-TTS-Nano-Demo/" target="_blank" rel="noopener noreferrer">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-body">
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/img/institution.svg" alt="Fudan University logo placeholder" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>Fudan University</strong></p>
+                <p class="exp-detail">M.S. in Computer Science and Technology, advised by Prof. Xipeng Qiu.</p>
+                <p class="exp-period">Sept. 2024 - Jun. 2027 expected</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/img/institution.svg" alt="University of Jinan logo placeholder" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>University of Jinan</strong></p>
+                <p class="exp-detail">B.S. in Data Science and Big Data Technology.</p>
+                <p class="exp-period">Sept. 2020 - Jun. 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="experience">
+        <h2 class="section-title">Internship</h2>
+        <div class="section-body">
+          <div class="card timeline-item">
+            <div class="experience-item">
+              <img src="assets/img/institution.svg" alt="MOSI logo placeholder" class="institution-logo">
+              <div class="experience-content">
+                <p class="exp-title"><strong>模思智能</strong></p>
+                <p class="exp-detail">Algorithm Intern. Research and engineering on multimodal foundation models, speech tokenizers, speech understanding, speech generation, and large-scale distributed training.</p>
+                <p class="exp-period">Apr. 2025 - present</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="honors">
+        <h2 class="section-title">Honors</h2>
+        <div class="section-body">
+          <div class="awards-grid">
+            <div class="award-item"><span class="award-icon">🏅</span><div class="award-text"><strong>ICPC Asia Regional</strong>, Silver Medal, 2022.</div></div>
+            <div class="award-item"><span class="award-icon">🏅</span><div class="award-text"><strong>CCPC</strong>, Silver Medal, 2022; National Finals Bronze Medal, 2023.</div></div>
+            <div class="award-item"><span class="award-icon">🏅</span><div class="award-text"><strong>Lanqiao Cup</strong>, National First Prize, 2022, 2023, 2024.</div></div>
+            <div class="award-item"><span class="award-icon">🏅</span><div class="award-text"><strong>RAICOM Programming Skills</strong>, National First Prize, 2022, 2023.</div></div>
+            <div class="award-item"><span class="award-icon">🏅</span><div class="award-text"><strong>ICPC Shandong Provincial Contest</strong>, Gold Medal, 2022, 2023, 2024.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-body compact-list">
+          <p><strong>Programming:</strong> C, Python.</p>
+          <p><strong>Deep Learning:</strong> PyTorch, Transformers, Megatron, large-scale distributed training.</p>
+          <p><strong>Speech:</strong> SpeechTokenizer, VAE, ASR, TTS, audio tokenization.</p>
+          <p><strong>Languages:</strong> Mandarin, Wu Chinese, English.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>
+        &copy; 2026 Yitian Gong. All rights reserved.
+        <br>
+        <span class="template-credit"><a href="https://github.com/wzsyyh/luka-homepage-template" target="_blank" rel="noopener noreferrer">Luka Homepage Template</a> by <a href="https://wzsyyh.github.io/" target="_blank" rel="noopener noreferrer">Yuheng Yang</a></span>
+      </p>
+    </footer>
   </div>
 
-  <section class="section" id="about">
-    <div class="container">
-      <h1 class="section-title">🎄 About Me</h1>
-      <p class="text-homepage">
-        Hi! I am Yitian Gong, a master's student at Fudan University advised by
-        <a href="https://xpqiu.github.io/" target="_blank" rel="noopener noreferrer">Prof. Xipeng Qiu</a>.
-        My research interests focus on <strong>multimodal foundation models</strong>,
-        especially speech tokenizers, audio tokenizers, audio representation learning,
-        text-to-speech generation, ASR, and speech-to-speech systems.
-      </p>
-      <p class="text-homepage">
-        I am dedicated to building native end-to-end multimodal models and making frontier
-        speech and audio technology useful in real downstream scenarios. Recently, I have
-        worked on the MOSS speech stack, including scalable audio tokenization, TTS models,
-        spoken dialogue generation, and practical transcription/diarization systems.
-      </p>
-    </div>
-  </section>
-
-  <section class="section compact" id="news">
-    <div class="container">
-      <h1 class="section-title">🔥 News</h1>
-      <div class="news-list">
-        <div class="news-item">
-          <span class="news-date">2026.03</span>
-          <span>MOSS-TTS-Family technical report and toolkit were released.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">2026.02</span>
-          <span>MOSS-Audio-Tokenizer was released for scalable all-domain audio tokenization.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">2026.01</span>
-          <span>MOSS Transcribe Diarize was released with a public demo.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">ACL 2026</span>
-          <span>XY-Tokenizer was accepted to ACL 2026 Main.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="publications">
-    <div class="container">
-      <h1 class="section-title">📑 Publications</h1>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-Audio-Tokenizer.png" alt="MOSS-Audio-Tokenizer overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS-Audio-Tokenizer: Scaling Audio Tokenizers for Future Audio Foundation Models</h2>
-          <p class="paper-conf">Technical Report</p>
-          <p class="paper-authors"><strong>Yitian Gong</strong>, Kuangwei Chen, Zhaoye Fei, Xiaogui Yang, Ke Chen, Yang Wang, Kexin Huang, Mingshu Chen, Ruixiao Li, Qingyuan Cheng, Shimin Li, Xipeng Qiu</p>
-          <p class="paper-description">"Scaling audio tokenizers to support low-frame-rate, variable-bitrate, all-domain audio modeling."</p>
-          <p>
-            <a class="paper-link" href="https://arxiv.org/abs/2602.10934" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/MOSS-Audio-Tokenizer" href="https://github.com/OpenMOSS/MOSS-Audio-Tokenizer" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">193</span>]</a>
-            <a class="paper-link" href="https://mosi.cn/models/moss-tts" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image fill-image" src="images/project/MOSS-TTS-Family.jpeg" alt="MOSS-TTS-Family overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS-TTS Technical Report</h2>
-          <p class="paper-conf">Technical Report</p>
-          <p class="paper-authors"><strong>Yitian Gong</strong>, Botian Jiang, Yiwei Zhao, Yucheng Yuan, Kuangwei Chen, Yaozhou Jiang, Cheng Chang, Dong Hong, Mingshu Chen, Ruixiao Li, and others</p>
-          <p class="paper-description">"A MOSS text-to-speech model family with large-scale training, evaluation, and open-source tooling."</p>
-          <p>
-            <a class="paper-link" href="https://arxiv.org/abs/2603.18090" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/MOSS-TTS" href="https://github.com/OpenMOSS/MOSS-TTS" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">1.6k</span>]</a>
-            <a class="paper-link" href="https://mosi.cn/models/moss-tts" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/XY-Tokenizer.png" alt="XY-Tokenizer overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">XY-Tokenizer: Mitigating the Semantic-Acoustic Conflict in Low-Bitrate Speech Codecs</h2>
-          <p class="paper-conf">ACL 2026 Main</p>
-          <p class="paper-authors"><strong>Yitian Gong</strong>, Luozhijie Jin, Kuangwei Chen, Dong Zhang, Ruifan Deng, Xiaogui Yang, Xin Zhang, Zhaoye Fei, Qinyuan Cheng, Shimin Li, Xipeng Qiu</p>
-          <p class="paper-description">"A speech codec study on the semantic-acoustic conflict in low-bitrate speech representation."</p>
-          <p>
-            <a class="paper-link" href="https://arxiv.org/pdf/2506.23325" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a class="paper-link github-star" data-github-repo="gyt1145028706/XY-Tokenizer" href="https://github.com/gyt1145028706/XY-Tokenizer" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">92</span>]</a>
-            <a class="paper-link" href="https://gyt1145028706.github.io/XY-Tokenizer.github.io/" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-Speech.png" alt="MOSS-Speech overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS-Speech: Towards True Speech-to-Speech Models Without Text Guidance</h2>
-          <p class="paper-conf">Technical Report</p>
-          <p class="paper-authors">Xingjian Zhao, Zhe Xu, Qinyuan Cheng, Zhaoye Fei, Luozhijie Jin, Yang Wang, Hanfu Chen, Yaozhou Jiang, Qinghui Gao, Ke Chen, Ruixiao Li, and <strong>Yitian Gong</strong></p>
-          <p class="paper-description">"A speech-to-speech modeling effort for direct spoken interaction without text guidance."</p>
-          <p>
-            <a class="paper-link" href="https://arxiv.org/abs/2510.00499" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/MOSS-Speech" href="https://github.com/OpenMOSS/MOSS-Speech" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">130</span>]</a>
-            <a class="paper-link" href="https://moss-speech.open-moss.com/" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-Transcribe-Diarize.png" alt="MOSS Transcribe Diarize overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS Transcribe Diarize Technical Report</h2>
-          <p class="paper-conf">Technical Report</p>
-          <p class="paper-authors">Donghua Yu, Zhengyuan Lin, Chen Yang, Yiyang Zhang, Hanfu Chen, Jingqi Chen, Ke Chen, Liwei Fan, Yi Jiang, Jie Zhu, Muchen Li, Wenxuan Wang, Yang Wang, Zhe Xu, <strong>Yitian Gong</strong>, and others</p>
-          <p class="paper-description">"A transcription and diarization system for speaker-aware speech understanding."</p>
-          <p>
-            <a class="paper-link" href="https://arxiv.org/abs/2601.01554" target="_blank" rel="noopener noreferrer">[Paper]</a>
-            <a class="paper-link github-star" data-github-repo="Petriorlz/MOSS-Transcribe-Diarize-demo" href="https://github.com/Petriorlz/MOSS-Transcribe-Diarize-demo" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">3</span>]</a>
-            <a class="paper-link" href="https://mosi.cn/models/moss-transcribe-diarize" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section compact" id="projects">
-    <div class="container">
-      <h1 class="section-title">⚙️ Projects</h1>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/SpeechGPT2-Preview.png" alt="SpeechGPT2 Preview overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">SpeechGPT2-preview, SpeechGPT2-Codec</h2>
-          <p class="paper-authors">OpenMOSS speech large-model preview release.</p>
-          <p class="paper-description">"Exploring end-to-end spoken dialogue and codec-centered speech modeling."</p>
-          <p>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/SpeechGPT-2.0-preview" href="https://github.com/OpenMOSS/SpeechGPT-2.0-preview" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">371</span>]</a>
-            <a class="paper-link" href="https://openmoss.ai/cn/speechgpt2-preview/" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-TTSD.png" alt="MOSS-TTSD overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS-TTSD: Text to Spoken Dialogue Generation</h2>
-          <p class="paper-authors"><strong>Yitian Gong</strong>, Ruifan Deng, Luozhijie Jin, Qinghui Gao, Dong Zhang, Yuqian Zhang, Donghua Yu, Zhengyuan Lin, and others</p>
-          <p class="paper-description">"Text-to-spoken-dialogue generation for richer multi-speaker and dialogue-style TTS."</p>
-          <p>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/MOSS-TTSD" href="https://github.com/OpenMOSS/MOSS-TTSD/tree/v0.7" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">1.3k</span>]</a>
-            <a class="paper-link" href="https://openmoss.ai/en/moss-ttsd/" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-
-      <article class="paper-container">
-        <img class="paper-image" src="images/project/MOSS-TTS-Nano.png" alt="MOSS-TTS-Nano overview" />
-        <div class="paper-content">
-          <h2 class="paper-title">MOSS-TTS-Nano, MOSS-Audio-Tokenizer-Nano</h2>
-          <p class="paper-authors">Compact TTS and audio-tokenizer releases.</p>
-          <p class="paper-description">"Lightweight MOSS speech stack components for easier trying, deployment, and extension."</p>
-          <p>
-            <a class="paper-link github-star" data-github-repo="OpenMOSS/MOSS-TTS-Nano" href="https://github.com/OpenMOSS/MOSS-TTS-Nano" target="_blank" rel="noopener noreferrer">[<span class="code-label">code</span> <span class="github-star-badge"><img class="github-star-icon" src="images/github.svg" alt="" />Stars</span><span class="github-star-count">1.9k</span>]</a>
-            <a class="paper-link" href="https://openmoss.github.io/MOSS-TTS-Nano-Demo/" target="_blank" rel="noopener noreferrer">[Demo]</a>
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section compact" id="cv">
-    <div class="container">
-      <div class="profile-section">
-        <h1>Education</h1>
-        <p><strong>Fudan University</strong> <span style="color:gray;float:right;">Sept. 2024 - Jun. 2027 expected</span><br>
-          M.S. in Computer Science and Technology, advised by Prof. Xipeng Qiu.</p>
-        <p><strong>University of Jinan</strong> <span style="color:gray;float:right;">Sept. 2020 - Jun. 2024</span><br>
-          B.S. in Data Science and Big Data Technology.</p>
-      </div>
-
-      <div class="profile-section">
-        <h1>Internship</h1>
-        <p><strong>模思智能</strong> <span style="color:gray;float:right;">Apr. 2025 - present</span><br>
-          Algorithm Intern. Research and engineering on multimodal foundation models, speech tokenizers, speech understanding, speech generation, and large-scale distributed training.</p>
-      </div>
-
-      <div class="profile-section">
-        <h1>Honors</h1>
-        <p><strong>ICPC Asia Regional</strong>, Silver Medal, 2022.</p>
-        <p><strong>CCPC</strong>, Silver Medal, 2022; National Finals Bronze Medal, 2023.</p>
-        <p><strong>Lanqiao Cup</strong>, National First Prize, 2022, 2023, 2024.</p>
-        <p><strong>RAICOM Programming Skills</strong>, National First Prize, 2022, 2023.</p>
-        <p><strong>ICPC Shandong Provincial Contest</strong>, Gold Medal, 2022, 2023, 2024.</p>
-      </div>
-
-      <div class="profile-section">
-        <h1>Skills</h1>
-        <p><strong>Programming:</strong> C, Python.</p>
-        <p><strong>Deep Learning:</strong> PyTorch, Transformers, Megatron, large-scale distributed training.</p>
-        <p><strong>Speech:</strong> SpeechTokenizer, VAE, ASR, TTS, audio tokenization.</p>
-        <p><strong>Languages:</strong> Mandarin, Wu Chinese, English.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>Edit by Yitian Gong @ 2026</p>
-    </div>
-  </footer>
+  <script src="assets/js/scale.fix.js"></script>
   <script>
-    (function () {
+    (function() {
+      const themeToggle = document.getElementById("themeToggle");
+      const icon = themeToggle.querySelector("i");
+
+      function setTheme(isDark) {
+        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+        icon.classList.toggle("fa-sun", isDark);
+        icon.classList.toggle("fa-moon", !isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(savedTheme ? savedTheme === "dark" : prefersDark);
+
+      themeToggle.addEventListener("click", function() {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        setTheme(!isDark);
+      });
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll(".section").forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".section").forEach(function(el) {
+          el.classList.add("visible");
+        });
+      }
+
       const starLinks = Array.from(document.querySelectorAll("[data-github-repo]"));
 
       function formatStars(count) {
