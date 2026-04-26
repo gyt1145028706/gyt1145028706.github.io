@@ -211,6 +211,36 @@ body.theme-luka .visitor-card-body {
   line-height: 1.6;
 }
 
+body.theme-luka .visitor-card-body-compact {
+  line-height: 1.4;
+}
+
+body.theme-luka .visitor-badge {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+body.theme-luka .visitor-badge img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body.theme-luka .visitor-map {
+  margin-top: 8px;
+  text-align: center;
+}
+
+body.theme-luka .visitor-note {
+  margin-top: 10px;
+  color: var(--luka-secondary);
+  font-size: 12px;
+}
+
+body.theme-luka .visitor-note code {
+  font-size: 12px;
+}
+
 body.theme-luka .content {
   flex: 1;
   min-width: 0;
