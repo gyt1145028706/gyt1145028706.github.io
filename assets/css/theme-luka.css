@@ -380,7 +380,6 @@ body.theme-luka .pub-thumb {
   width: 170px;
   height: 96px;
   flex: 0 0 170px;
-  border: 1px solid var(--luka-border);
   border-radius: 8px;
   background: var(--luka-social-bg);
   object-fit: contain;
