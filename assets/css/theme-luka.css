@@ -432,12 +432,14 @@ body.theme-luka .pub-content .author {
   margin-bottom: 4px;
   color: var(--luka-secondary);
   font-size: 14px;
+  font-style: italic;
 }
 
 body.theme-luka .pub-content .periodical {
   margin-bottom: 6px;
   color: var(--luka-accent);
   font-size: 14px;
+  font-style: normal;
 }
 
 body.theme-luka .pub-content .links a {
@@ -449,7 +451,7 @@ body.theme-luka .pub-desc {
   margin-bottom: 6px;
   color: var(--luka-secondary);
   font-size: 13px;
-  font-style: italic;
+  font-style: normal;
 }
 
 body.theme-luka .github-star-count {
