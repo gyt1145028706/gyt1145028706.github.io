@@ -397,6 +397,8 @@
 
       const starLinks = Array.from(document.querySelectorAll("[data-github-repo]"));
       const hfLinks = Array.from(document.querySelectorAll("[data-hf-model], [data-hf-models]"));
+      const HF_CACHE_PREFIX = "hf-downloads-cache:";
+      const HF_CACHE_TTL_MS = 12 * 60 * 60 * 1000;
 
       function formatCompactCount(count) {
         if (typeof count !== "number") {
@@ -409,6 +411,54 @@
         }
 
         return String(count);
+      }
+
+      function readHfCache(cacheKey) {
+        try {
+          const raw = window.localStorage.getItem(HF_CACHE_PREFIX + cacheKey);
+          if (!raw) {
+            return null;
+          }
+
+          const parsed = JSON.parse(raw);
+          if (
+            !parsed ||
+            typeof parsed.totalDownloads !== "number" ||
+            typeof parsed.timestamp !== "number"
+          ) {
+            return null;
+          }
+
+          if (Date.now() - parsed.timestamp > HF_CACHE_TTL_MS) {
+            window.localStorage.removeItem(HF_CACHE_PREFIX + cacheKey);
+            return null;
+          }
+
+          return parsed.totalDownloads;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function writeHfCache(cacheKey, totalDownloads) {
+        try {
+          window.localStorage.setItem(HF_CACHE_PREFIX + cacheKey, JSON.stringify({
+            totalDownloads: totalDownloads,
+            timestamp: Date.now()
+          }));
+        } catch (error) {
+          console.warn(`Could not cache Hugging Face downloads for ${cacheKey}`, error);
+        }
+      }
+
+      function applyHfDownloads(link, models, totalDownloads) {
+        const countNode = link.querySelector(".hf-download-count");
+        const formattedDownloads = formatCompactCount(totalDownloads);
+
+        if (formattedDownloads && countNode) {
+          countNode.textContent = formattedDownloads;
+          link.title = `${models.join(" + ")}: ${totalDownloads.toLocaleString("en-US")} all-time downloads on Hugging Face`;
+        }
       }
 
       async function updateGitHubStars(link) {
@@ -449,6 +499,13 @@
           return;
         }
 
+        const cacheKey = models.join(",");
+        const cachedDownloads = readHfCache(cacheKey);
+        if (typeof cachedDownloads === "number") {
+          applyHfDownloads(link, models, cachedDownloads);
+          return;
+        }
+
         try {
           const downloads = await Promise.all(models.map(async function(model) {
             const response = await fetch(`https://huggingface.co/api/models/${model}?expand[]=downloadsAllTime`, {
@@ -468,13 +525,8 @@
           const totalDownloads = downloads.reduce(function(sum, count) {
             return sum + count;
           }, 0);
-          const countNode = link.querySelector(".hf-download-count");
-          const formattedDownloads = formatCompactCount(totalDownloads);
-
-          if (formattedDownloads && countNode) {
-            countNode.textContent = formattedDownloads;
-            link.title = `${models.join(" + ")}: ${totalDownloads.toLocaleString("en-US")} all-time downloads on Hugging Face`;
-          }
+          writeHfCache(cacheKey, totalDownloads);
+          applyHfDownloads(link, models, totalDownloads);
         } catch (error) {
           console.warn(`Could not update Hugging Face downloads for ${models.join(", ")}`, error);
         }
