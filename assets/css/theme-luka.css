@@ -408,8 +408,8 @@ body.theme-luka .publication-entry {
 
 body.theme-luka .pub-thumb {
   width: 170px;
-  height: 96px;
   flex: 0 0 170px;
+  height: auto;
   border-radius: 8px;
   background: var(--luka-social-bg);
   object-fit: contain;
@@ -417,8 +417,8 @@ body.theme-luka .pub-thumb {
 }
 
 body.theme-luka .pub-thumb.fill-image {
-  object-fit: cover;
-  padding: 0;
+  object-fit: contain;
+  padding: 6px;
 }
 
 body.theme-luka .pub-content .title {
@@ -577,7 +577,6 @@ body.theme-luka .compact-list p {
   body.theme-luka .pub-thumb {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
     margin-bottom: 12px;
   }
 
