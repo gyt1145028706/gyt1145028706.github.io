@@ -435,6 +435,14 @@ body.theme-luka .pub-content .author {
   font-style: italic;
 }
 
+body.theme-luka .pub-content .role-note {
+  margin-bottom: 5px;
+  color: var(--luka-accent);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+}
+
 body.theme-luka .pub-content .periodical {
   margin-bottom: 6px;
   color: var(--luka-accent);
