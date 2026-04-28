@@ -442,8 +442,9 @@ body.theme-luka .pub-content .author {
 
 body.theme-luka .pub-content .author-note {
   margin-bottom: 4px;
-  color: var(--luka-muted);
-  font-size: 12px;
+  color: var(--luka-secondary);
+  font-size: 14px;
+  font-style: italic;
 }
 
 body.theme-luka .pub-content .role-note {
@@ -473,7 +474,8 @@ body.theme-luka .pub-desc {
   font-style: normal;
 }
 
-body.theme-luka .github-star-count {
+body.theme-luka .github-star-count,
+body.theme-luka .hf-download-count {
   display: inline-flex;
   align-items: center;
   min-height: 18px;
